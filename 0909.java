@@ -14,7 +14,7 @@ class Solution {
             } else {
                 prev_last = word.charAt(word.length()-1);
                 prev_words.add(word);
-            }
+            } 
         }
 
         return answer;
