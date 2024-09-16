@@ -43,3 +43,34 @@ class Solution {
 2. list에 추가하고 바꿀필요 없이 Arrays.copyOfRange(array, start, end); 하면 범위 카피가되네 ...
 3. 
 */
+
+import java.util.*;
+
+class Solution {
+    public String solution(int[] numbers) {
+        String answer = "";
+        String[] strNumbers = new String[numbers.length];
+        for(int i=0; i<numbers.length; i++){
+            strNumbers[i] = Integer.toString(numbers[i]);
+        }
+
+        Arrays.sort(strNumbers, (str1, str2) -> (str2 + str1).compareTo(str1 + str2));
+
+        if(strNumbers[0].equals("0")){
+            return "0";
+        }
+
+        String max = strNumbers[0];
+        //Integer.parseInt : string->int
+        StringBuilder sb = new StringBuilder();
+
+        for(int i=0; i<strNumbers.length; i++){
+            sb.append(strNumbers[i]);
+        }
+
+        return sb.toString();
+    }
+}
+
+//람다식 정렬 잘 활용하자!!
+//Integer.parseInt(), Integer.toString() 으로 형변환
