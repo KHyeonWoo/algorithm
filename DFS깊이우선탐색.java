@@ -1,4 +1,33 @@
+import java.util.*;
 
+class Solution {
+    int max = 0;
+    public int solution(int k, int[][] dungeons) {
+        boolean[] visited = new boolean[dungeons.length];
+        goDungeon(dungeons, k, 0, visited);
+        return max;
+    }
+
+    private void goDungeon(int[][] dungeons, int pirodo, int cnt, boolean[] visited){
+
+
+        for(int i=0; i<dungeons.length; i++){
+            if(pirodo - dungeons[i][0] >= 0 && !visited[i]){
+                visited[i] = true;
+                goDungeon(dungeons, pirodo - dungeons[i][1], cnt+1, visited);
+                visited[i] = false;
+            }
+        }
+
+        if(cnt > max){
+            max = cnt;
+        }
+
+    }
+}
+/*
+1. cnt++ 로 키우고 재귀함수를 타면 결과값에 잘못 반영됨 명심!!!
+*/
 
 import java.util.*;
 class Solution {
