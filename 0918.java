@@ -45,3 +45,28 @@ class Solution {
 /*
 1. 스택으로 시간복잡도 개선
 */
+
+import java.util.*;
+class Solution {
+    public int solution(int[] nums) {
+
+        // Map<Integer, Integer> ponchetMons = new HashMap<>();
+        // for(int num: nums){
+        //     ponchetMons.set(num, ponchetMons.getOrDefault(num, 0)+1);
+        // }
+
+        Set<Integer> ponchetMons = new HashSet<>();
+        for(int num: nums){
+            ponchetMons.add(num);
+        }
+        int difCnt = ponchetMons.size();
+
+        if(nums.length/2 < difCnt){
+            return nums.length/2;
+        } else {
+            return difCnt;
+        }
+    }
+}
+
+// stack, hashmap 연습
