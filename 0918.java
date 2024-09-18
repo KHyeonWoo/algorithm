@@ -70,3 +70,26 @@ class Solution {
 }
 
 // stack, hashmap 연습
+import java.util.*;
+class Solution {
+    public String solution(String[] participant, String[] completion) {
+        String answer = "";
+        Map<String, Integer> completionMap = new HashMap<>();
+
+        for(String comPerson: completion){
+            completionMap.put(comPerson, completionMap.getOrDefault(comPerson, 0)+1);
+        }
+
+        for(String partPerson: participant){
+            if(completionMap.containsKey(partPerson)){
+                if(completionMap.get(partPerson) == 0){
+                    return partPerson;
+                }
+                completionMap.put(partPerson, completionMap.get(partPerson)-1);
+            } else {
+                return partPerson;
+            }
+        }
+        return answer;
+    }
+}
