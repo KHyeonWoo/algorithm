@@ -93,3 +93,34 @@ class Solution {
         return answer;
     }
 }
+
+
+import java.util.*;
+class Solution {
+    public boolean solution(String[] phone_book) {
+        boolean answer = true;
+        
+        Arrays.sort(phone_book);
+        for(int i=0; i<phone_book.length; i++){
+            for(int j=i-1; j<=i+1; j++){
+                if(j==-1||j==phone_book.length) continue;
+                if(i != j &&phone_book[j].startsWith(phone_book[i])){
+                    return false;
+                }
+                // if(j==-1||j==phone_book.length) continue;
+                // if(i != j && phone_book[i].length() <= phone_book[j].length()){
+                //     String str = phone_book[j].substring(0, phone_book[i].length());
+                //     if (str.equals(phone_book[i])){
+                //         return false;
+                //     }
+                // }
+                
+            }
+        }
+        
+        
+        return true;
+    }
+}
+
+//startsWith 라는 메서드도 있네여~
